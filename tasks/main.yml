@@ -1,0 +1,31 @@
+---
+# tasks file for vim-ansible-syntax
+- name: install vim and deps
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+  - vim
+  - git
+
+- name: display vim file
+  debug:
+    var: vim_file
+
+- name: create bundle dir
+  file:
+    state: directory
+    path: "{{ vim_dir }}/bundle"
+
+- name: copy vimrc file
+  copy:
+    src: vimrc
+    dest: "{{ vim_file }}"
+
+- name: install vundle
+  git:
+    repo: https://github.com/VundleVim/Vundle.vim.git
+    dest: "{{ vim_dir }}/bundle/Vundle.vim"
+
+- name: install vim plugins
+  command: vim +PluginInstall +qall

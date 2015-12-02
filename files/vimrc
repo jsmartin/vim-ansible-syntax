@@ -1,0 +1,33 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" " alternatively, pass a path where Vundle should install plugins
+" "call vundle#begin('~/some/path/here')
+"
+" " let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'pearofducks/ansible-vim'
+Plugin 'Yggdroot/indentLine'
+Plugin 'Glench/Vim-Jinja2-Syntax'
+" " All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+let g:ansible_extra_syntaxes = "sh.vim ruby.vim"
+let g:ansible_attribute_highlight = "ob"
+let g:ansible_name_highlight = 'b'
+set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
+set ai
+set si
+set wrap
+set showmatch
+set mat=2 
+let g:indentLine_char = '┊'
+let g:indentLine_leadingSpaceEnabled=1
+let g:indentLine_leadingSpaceChar = '°'
+au BufRead,BufNewFile *.yml set filetype=ansible
+autocmd VimEnter * LeadingSpaceToggle
+autocmd VimEnter * IndentLinesToggle 

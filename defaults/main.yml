@@ -1,0 +1,5 @@
+---
+# defaults file for vim-ansible-syntax
+vim_root: "{{ ansible_env.HOME}}"
+vim_dir: "{{ vim_root }}/.vim"
+vim_file: "{{ vim_root}}/.vimrc"

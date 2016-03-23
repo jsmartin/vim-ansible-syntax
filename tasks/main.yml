@@ -1,5 +1,11 @@
 ---
 # tasks file for vim-ansible-syntax
+
+- name: Install EPEL
+  yum:
+    state: present
+    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
 - name: install vim and deps
   yum:
     name: "{{ item }}"

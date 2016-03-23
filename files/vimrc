@@ -21,6 +21,7 @@ let g:ansible_attribute_highlight = "ob"
 let g:ansible_name_highlight = 'b'
 set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
 set ai
+syntax on 
 set si
 set wrap
 set showmatch
@@ -28,6 +29,6 @@ set mat=2
 let g:indentLine_char = '┊'
 let g:indentLine_leadingSpaceEnabled=1
 let g:indentLine_leadingSpaceChar = '°'
-au BufRead,BufNewFile *.yml set filetype=ansible
+au BufRead,BufNewFile *.yaml,*.yml set filetype=ansible
 autocmd VimEnter * LeadingSpaceToggle
 autocmd VimEnter * IndentLinesToggle 
